@@ -330,6 +330,125 @@ public class Array_List_Driver_Swing
 	   //***************************************************************
 	   
 	   //***************************************************************
+	   //Create Delete Last Button and its event handler
+	   //***************************************************************
+	   JButton deleteLastButton = new JButton("Delete Last Book");
+	   deleteLastButton.setHorizontalAlignment(SwingConstants.CENTER);
+	   
+	   deleteLastButton.addActionListener(new ActionListener()
+	   {
+	       public void actionPerformed(ActionEvent e)
+	       {
+	           if(tBookList.size() > 0)
+	           {
+	               Timer tTimer = new Timer();
+	               tTimer.setStart();
+
+	               tBookList.remove(tBookList.size() - 1);
+
+	               tTimer.setEnd();
+	               statusLabel.setText("Deleted Last Book: " + tTimer.getElapsedNano() + " NanoSecs");
+	           }
+	       }
+	   });
+	   
+	   //***************************************************************
+	   //Create Delete First Button and its event handler
+	   //***************************************************************
+	   JButton deleteFirstButton = new JButton("Delete First Book");
+	   deleteFirstButton.setHorizontalAlignment(SwingConstants.CENTER);
+	   
+	   deleteFirstButton.addActionListener(new ActionListener()
+	   {
+	       public void actionPerformed(ActionEvent e)
+	       {
+	           if(tBookList.size() > 0)
+	           {
+	               Timer tTimer = new Timer();
+	               tTimer.setStart();
+
+	               tBookList.remove(0);
+
+	               tTimer.setEnd();
+	               statusLabel.setText("Deleted First Book: " + tTimer.getElapsedNano() + " NanoSecs");
+	           }
+	       }
+	   });
+	   //***************************************************************
+	   //Create Find Start Index Button and its event handler
+	   //***************************************************************
+	   JButton findStartIndexButton = new JButton("Find Start Index Book");
+	   findStartIndexButton.setHorizontalAlignment(SwingConstants.CENTER);
+	   findStartIndexButton.addActionListener(new ActionListener()
+	   {
+	       public void actionPerformed(ActionEvent e)
+	       {
+	           if(tBookList.size() > 0)
+	           {
+	               Timer tTimer = new Timer();
+	               tTimer.setStart();
+
+	               Book b = tBookList.get(0);
+
+	               tTimer.setEnd();
+	               statusLabel.setText("Found Start Index: " + tTimer.getElapsedNano() + " NanoSecs");
+	           }
+	       }
+	   });
+
+	 
+	   //***************************************************************
+	   //Create Find Middle Index Button and its event handler
+	   //***************************************************************
+	   JButton findMiddleIndexButton = new JButton("Find Middle Index Book");
+	   findMiddleIndexButton.setHorizontalAlignment(SwingConstants.CENTER);
+	   findMiddleIndexButton.addActionListener(new ActionListener()
+	   {
+	       public void actionPerformed(ActionEvent e)
+	       {
+	           if(tBookList.size() > 0)
+	           {
+	               int mid = tBookList.size()/2;
+
+	               Timer tTimer = new Timer();
+	               tTimer.setStart();
+
+	               Book b = tBookList.get(mid);
+
+	               tTimer.setEnd();
+	               statusLabel.setText("Found Middle Index: " + tTimer.getElapsedNano() + " NanoSecs");
+	           }
+	       }
+	   });
+
+	   
+	   
+	   //***************************************************************
+	   //Create Find End Button and its event handler
+	   //***************************************************************
+	   JButton findEndIndexButton = new JButton("Find End Index Book");
+	   findEndIndexButton.setHorizontalAlignment(SwingConstants.CENTER);
+	   findEndIndexButton.addActionListener(new ActionListener()
+	   {
+	       public void actionPerformed(ActionEvent e)
+	       {
+	           if(tBookList.size() > 0)
+	           {
+	               Timer tTimer = new Timer();
+	               tTimer.setStart();
+
+	               Book b = tBookList.get(tBookList.size()-1);
+
+	               tTimer.setEnd();
+	               statusLabel.setText("Found End Index: " + tTimer.getElapsedNano() + " NanoSecs");
+	           }
+	       }
+	   });
+
+	  
+
+
+	   //***************************************************************
 	   //Create Button to fill form with good data and its event handler
 	   //***************************************************************
 	   JButton goodButton = new JButton("Good Sample");
@@ -550,6 +669,12 @@ public class Array_List_Driver_Swing
       //Add out submit button
       formPanel.add(addButton);
 	  formPanel.add(addAtFrontButton);
+	  formPanel.add(deleteFirstButton);
+	  formPanel.add(deleteLastButton);
+	  formPanel.add(findStartIndexButton);
+	  formPanel.add(findMiddleIndexButton);
+	  formPanel.add(findEndIndexButton);
+	  
       
       //Make frame visible
 	  mainFrame.setVisible(true);  
